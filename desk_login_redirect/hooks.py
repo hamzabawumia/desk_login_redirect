@@ -8,6 +8,10 @@ app_license = "mit"
 # Apps
 # ------------------
 
+# Manually add this section if it is missing from your hooks.py
+on_session_creation = "desk_login_redirect.utils.redirect_desk_user"
+
+
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
