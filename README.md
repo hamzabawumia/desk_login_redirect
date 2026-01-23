@@ -8,7 +8,7 @@ MIT
 ---
 
 # Problem Summary
-### The Bug: Assigning a landing page route (e.g., /app/attendance) directly in the Role DocType via the UI does not consistently redirect users after login in v15.
+### The Bug: in Frappe v15, assigning a landing page route (e.g., /app/attendance) directly in the Role DocType via the desk UI does not consistently redirect users after login .
 
 ### The Impact: Users are dumped onto a generic /users or user profile page, requiring manual navigation. 
 
@@ -18,8 +18,8 @@ We bypass the unreliable UI setting by implementing a custom Python hook that in
 Intercept Authentication: Use the on_session_creation for v15 hook in your custom app's hooks.py.
 
 We use a Python function that:
-    - Retrieves the user's roles.
-    - Checks for a defined home_page for those roles in the database.
+    - Retrieves the user's roles that was defined in the desk when creating that user.
+    - Checks for a defined home_page for those roles defined in the desk @ Roles -> Homepage.
     - Force Redirect: Update frappe.local.flags.redirect_location and raise a frappe.Redirect exception to ensure the browser moves to the desired route immediately after the session is created. 
 
     
