@@ -9,7 +9,7 @@ app_license = "mit"
 # ------------------
 
 # Manually add this section if it is missing from your hooks.py
-on_session_creation = "desk_login_redirect.utils.redirect_desk_user"
+on_login  = "desk_login_redirect.utils.redirect_desk_user"
 
 
 # required_apps = []
